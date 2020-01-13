@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+<title>Blog</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-dark-grey.css">
+<link rel="stylesheet" href="/fontsawesome/css/fontawesome.css">
+<link rel="stylesheet" href="/fontsawesome/css/all.min.css">
+<link href="https://fonts.googleapis.com/css?family=Alatsi|Saira+Extra+Condensed|Yantramanav:100&display=swap" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
+h1,h2,h3,h4,h5,h6 {font-family: "Oswald"}
+body {font-family: "Open Sans"}
+
+.topnav {
+    background-color:#fff;
+    overflow: hidden;
+    height: 5rem;
+
+  }
+
+  .topnav img{
+      height: 50px;
+      margin: 10px 0px 10px 200px;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: right;
+    display: block;
+    color: #181B2B;
+    text-align: center;
+    padding: 14px 16px;
+    margin-right: 50px;
+    text-decoration: none;
+    font-size: 17px;
+
+  }
+
+  .topnav .home{
+    float: left;
+    padding: 0;
+  }
+  .topnav .blog{
+    margin-left: 50px;
+  }
+  /* Hide the link that should open and close the topnav on small screens */
+  .topnav .icon {
+    display: none;
+  }
+  
+  /* Dropdown container - needed to position the dropdown content */
+  .dropdown {
+    float: right;
+    overflow: hidden;
+  }
+  
+  /* Style the dropdown button to fit inside the topnav */
+  .dropdown .dropbtn {
+    font-size: 17px;
+    border: none;
+    outline: none;
+    color: #181B2B;
+    margin-right: 50px;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+  
+  /* Style the dropdown content (hidden by default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Style the links inside the dropdown */
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  /* Add a dark background on topnav links and the dropdown button on hover */
+  .topnav a:hover, .dropdown:hover .dropbtn {
+    background-color: #555;
+    color: white;
+  }
+  
+  /* Add a grey background to dropdown links on hover */
+  .dropdown-content a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Show the dropdown menu when the user moves the mouse over the dropdown button */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+  @media screen and (max-width: 600px) {
+    .topnav a:not(:first-child), .dropdown .dropbtn {
+      display: none;
+    }
+    .topnav a.icon {
+      float: right;
+      display: block;
+    }
+  }
+  
+  /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+  @media screen and (max-width: 600px) {
+    .topnav.responsive {position: relative;}
+    .topnav.responsive a.icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .topnav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+    .topnav.responsive .dropdown {float: none;}
+    .topnav.responsive .dropdown-content {position: relative;}
+    .topnav.responsive .dropdown .dropbtn {
+      display: block;
+      width: 100%;
+      text-align: left;
+    }
+  }
+
+  .footer-container{
+  display: flex;
+
+}
+
+.footer-text{
+  flex: 1;
+}
+
+.footer-text h3{
+  color: #fff;
+  font-size: 30px;
+  font-family: 'Alatsi', sans-serif;
+}
+
+.footer-text p{
+  font-size: 30px;
+  font-family: 'Yantramanav', sans-serif;
+  color: #fff;
+}
+.socialbutton {
+  flex: 1;
+  
+}
+ul {
+  position: relative;
+  margin:0;
+  padding:0;
+  display:flex;
+  justify-content: flex-end;
+ 
+}
+
+ul li {
+  list-style: none;
+}
+
+ul li a {
+  position: relative;
+  width:60px;
+  height:60px;
+  display:block;
+  text-align:center;
+  margin:0 10px;
+  border-radius: 50%;
+  padding: 6px;
+  box-sizing: border-box;
+  text-decoration:none;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+  background: linear-gradient(0deg, #ddd, #fff);
+  transition: .5s;
+}
+
+ul li a:hover {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+ul li a .fab {
+  width: 100%;
+  height:100%;
+  display:block;
+  background: linear-gradient(0deg, #fff, #ddd);
+  border-radius: 50%;
+  line-height: calc(60px - 12px);
+  font-size:24px;
+  color: #262626;
+  transition: .5s;
+}
+
+ul li:nth-child(1) a:hover .fab {
+  color: #3b5998;
+}
+
+ul li:nth-child(2) a:hover .fab {
+  color: #00aced;
+}
+
+ul li:nth-child(3) a:hover .fab {
+  color: #dd4b39;
+}
+
+ul li:nth-child(4) a:hover .fab {
+  color: #007bb6;
+}
+
+ul li:nth-child(5) a:hover .fab {
+  color: #e4405f;
+}
+</style>
+<body style="background-color: #fff;">
+
+<!-- Navigation bar with social media icons -->
+<header>
+  <div class="topnav" id="myTopnav">
+      <a class="home" href="index.html"><img src="nav logo.svg" alt=""></a>
+      <a href="contact.html">Contact</a>
+      <a class="blog" href="blog.html">Blog</a>
+      <div class="dropdown">
+          <button class="dropbtn">Shop</button>
+          <div class="dropdown-content">
+              <a href="desktop.html">Desktops</a>
+              <a href="laptop.html">Laptops</a>
+              <a href="acs.html">Accessories</a>
+          </div>
+      </div>
+      <a href="about.html">About</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
+</header>
+  
+<!-- w3-content defines a container for fixed size centered content, 
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="w3-content" style="max-width:1600px">
+
+
+  <!-- Image header -->
+  <header class="w3-display-container w3-wide" id="home">
+    <img class="w3-image" src="bg1.jpg" alt="Fashion Blog" width="1600" height="1060">
+    <div class="w3-display-left w3-padding-large">
+      <h1 class="w3-text-white">Arotech's</h1>
+      <h1 class="w3-jumbo w3-text-white w3-hide-small"><b>TECH BLOG</b></h1>
+      <h6><button class="w3-button w3-white w3-padding-large w3-large w3-opacity w3-hover-opacity-off" onclick="document.getElementById('subscribe').style.display='block'">SUBSCRIBE</button></h6>
+    </div>
+  </header>
+
+  <!-- Grid -->
+  <div class="w3-row w3-padding w3-border">
+
+    <!-- Blog entries -->
+    <div class="w3-col l8 s12">
+    
+      <!-- Blog entry -->
+      <div class="w3-container w3-white w3-margin w3-padding-large">
+        <div class="w3-center">
+          <h3>PC Building Black Friday Deals</h3>
+          <h5>Build the perfect gaming PC with these excellent deals and PC components!<div class="w3-opacity">Dec 14, 2019</div></h5>
+        </div>
+
+        <div class="w3-justify">
+          <img src="walmartpc.jpg" alt="Girl Hat" style="width:100%" class="w3-padding-16">
+          <p><strong>More Deals!</strong> The holiday season is the perfect time to build your first or next gaming PC. With excellent deals and discounts, you can get all the components you need for just a fraction of the price. From cases and motherboards to processors and beefy graphics cards, Den of Geek has everything you need to build a powerful gaming rig while also saving a bit of your hard-earned money. </p>
+          <p class="w3-left"><button class="w3-button w3-white w3-border" onclick="likeFunction(this)"><b><i class="fa fa-thumbs-up"></i> Like</b></button></p>
+          <p class="w3-right"><button class="w3-button w3-black" onclick="myFunction('demo1')" id="myBtn"><b>Replies  </b> <span class="w3-tag w3-white">1</span></button></p>
+          <p class="w3-clear"></p>
+          <div class="w3-row w3-margin-bottom" id="demo1" style="display:none">
+            <hr>
+              <div class="w3-col l2 m3">
+                <img src="man1.jpg" style="width:90px;">
+              </div>
+              <div class="w3-col l10 m9">
+                <h4>George <span class="w3-opacity w3-medium">Dec 23, 2018, 6:32 PM</span></h4>
+                <p>Great blog post! Following</p>
+              </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+
+      <!-- Blog entry -->
+      <div class="w3-container w3-white w3-margin w3-padding-large">
+        <div class="w3-center">
+          <h3>AMD in 2019: Big things in small packages</h3>
+          <h5>The might of of AMD's 7nm<div class="w3-opacity">Jan 2, 2019</div></h5>
+        </div>
+
+        <div class="w3-justify">
+          <img src="amd.jpg" alt="Men in Hats" style="width:100%" class="w3-padding-16">
+          <p><strong>Bang!</strong> AMD started 2019 with something of a bang.</p>
+          <p>At the beginning of 2019, AMD had a lot to respond to. Nvidia was still the king of the graphics hill with its RTX 20-series, and Intel similarly had the CPU space covered with many of the best processors thanks to powerful single-core performance.
+            But, this has been a year for change, and AMD embraced that. AMD launched a slew of new products this year, and shook up the market in a way we haven’t seen in a long while. It’s now coming out on top in a number of hardware matchups against its rivals, and is showing serious momentum that could make 2020 an even more impressive year.</p>
+          <p class="w3-left"><button class="w3-button w3-white w3-border" onclick="likeFunction(this)"><b><i class="fa fa-thumbs-up"></i> Like</b></button></p>
+          <p class="w3-right"><button class="w3-button w3-theme-d5" onclick="myFunction('demo2')"><b>Replies  </b> <span class="w3-tag w3-white">2</span></button></p>
+          <p class="w3-clear"></p>
+          
+          <!-- Example of comment field -->
+          <div id="demo2" style="display:none">
+            <div class="w3-row">
+              <hr>
+              <div class="w3-col l2 m3">
+                <img src="girl1.jpg" style="width:90px;">
+              </div>
+              <div class="w3-col l10 m9">
+                <h4>Amber <span class="w3-opacity w3-medium">Jan 12, 2019, 10:52 PM</span></h4>
+                <p>Love your blog page! Simply the best! </p><br>
+              </div>
+            </div>
+            <div class="w3-row w3-margin-bottom">
+              <div class="w3-col l2 m3">
+                <img src="girl2.jpg" style="width:90px;">
+              </div>
+              <div class="w3-col l10 m9">
+                <h4>Angie <span class="w3-opacity w3-medium">Jan 16, 2019, 9:12 PM</span></h4>
+                <p>Please post more content like this!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog entry -->
+      <div class="w3-container w3-white w3-margin w3-padding-large">
+        <div class="w3-center">
+          <h3>The best and worst Intel Core i7 Ice Lake laptops of 2019</h3>
+          <h5>Read this before buying your next laptop <div class="w3-opacity">April 7, 2019</div></h5>
+        </div>
+
+        <div class="w3-justify">
+          <img src="dell.jpg" alt="Runway" style="width:100%" class="w3-padding-16">
+          <p><strong>Dont miss!</strong> Despite its turbulent development history, Intel managed to push out the 10 nm Ice Lake series of ULV processors before year's end. Actual Ultrabooks sporting the fancy new CPUs, however, have been limited to just a small handful. We've tested six different laptops all with the Core i7-1065G7 CPU to see which of these early Ice Lake units you should consider as well which ones you should avoid from a pure performance point-of-view.
+
+            The current top two laptops that represent Ice lake at its best are the Dell XPS 13 7390 2-in-1 and 15-inch Microsoft Surface Laptop 3. As shown by our benchmarks below, the Core i7 in the Dell convertible benefits from faster Turbo Boost than every other Ice Lake laptop even though the advantage is temporary. Clock rates eventually fall and stabilize at 3.0 GHz with a very warm CPU temperature of 97 C. The Microsoft laptop is able to outperform the Dell by 8 percent over longer periods according to CineBench R15 Multi-Thread and at a much lower running temperature of 77 C.</p>
+          <p class="w3-left"><button class="w3-button w3-white w3-border" onclick="likeFunction(this)"><b><i class="fa fa-thumbs-up"></i> Like</b></button></p>
+          <p class="w3-right"><button class="w3-button w3-theme-d5" onclick="myFunction('demo3')"><b>Replies  </b> <span class="w3-tag w3-white">3</span></button></p>
+          <p class="w3-clear"></p>
+          
+          <!-- Example of comment field -->
+          <div id="demo3" style="display:none">
+            <hr>
+            <div class="w3-row w3-margin-bottom">
+              <div class="w3-col l2 m3">
+                <img src="girl3.jpg" style="width:90px;">
+              </div>
+              <div class="w3-col l10 m9">
+                <h4>Jane <span class="w3-opacity w3-medium">April 10, 2019, 7:22 PM</span></h4>
+                <p>That was a great article! Thanks for everything.</p>
+              </div>
+            </div>
+            <div class="w3-row w3-margin-bottom">
+              <div class="w3-col l2 m3">
+                <img src="man2.jpg" style="width:90px;">
+              </div>
+              <div class="w3-col l10 m9">
+                <h4>John <span class="w3-opacity w3-medium">April 18, 2019, 10:32 PM</span></h4>
+                <p>Keep up the GREAT work! I am cheering for you!! </p>
+              </div>
+            </div>
+            <div class="w3-row w3-margin-bottom">
+              <div class="w3-col l2 m3">
+                <img src="man1.jpg" style="width:90px;">
+              </div>
+              <div class="w3-col l10 m9">
+                <h4>Dickson <span class="w3-opacity w3-medium">April 27, 2019, 9:12 PM</span></h4>
+                <p>Cant wait to buy my new laptop!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    <!-- END BLOG ENTRIES -->
+    </div>
+
+    <!-- About/Information menu -->
+    <div class="w3-col l4">
+      <!-- About Card -->
+      <div class="w3-white w3-margin">
+        <img src="man3.jpg" alt="Jane" style="width:100%" class="w3-grayscale">
+        <div class="w3-container w3-theme-d5">
+          <h4>Cihan Soysakal</h4>
+          <p>Just me, myself and I, exploring the universe of unknownment. I have a heart of love and a interest of technology blog. I want to share my world with you.</p>
+        </div>
+      </div>
+      <hr>
+
+      <!-- Posts -->
+      <div class="w3-white w3-margin">
+        <div class="w3-container w3-padding w3-theme-d5">
+          <h4>Popular Posts</h4>
+        </div>
+        <ul class="w3-ul w3-hoverable w3-white">
+          <li class="w3-padding-16">
+            <img src="https://images.ctfassets.net/cnu0m8re1exe/7a3wLT70JeEkuYBVQchqXH/9744edbe6087deb22f321f6f95c3545f/QuantumComputing.jpg?w=650&h=433&fit=fill" alt="Image" class="w3-left w3-margin-right" style="width:60px">
+            <span class="w3-large">Quantum Computer</span>
+            <br>
+            
+          </li>
+          <li class="w3-padding-16">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/landing.png" alt="Image" class="w3-left w3-margin-right" style="width:60px">
+            <span class="w3-large">Coding Alien</span>
+            <br>
+           
+          </li>
+          <li class="w3-padding-16">
+            <img src="http://www.sportsgamings.us/wp-content/uploads/2018/07/Exactly-About-Bubble-Shooter-A-Three-Regarding-Your-Kind-Match.jpg" alt="Image" class="w3-left w3-margin-right" style="width:60px">
+            <span class="w3-large">Top Games</span>
+            <br>
+            
+          </li>
+          <li class="w3-padding-16">
+            <img src="https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2019/12/DSCF0200-1592x1061.jpg" alt="Image" class="w3-left w3-margin-right w3-sepia" style="width:60px">
+            <span class="w3-large">Building PC</span>
+            <br>
+  
+          </li>
+        </ul>
+      </div>
+      <hr>
+
+      <!-- Advertising -->
+      <div class="w3-white w3-margin">
+        <div class="w3-container w3-padding w3-theme-d5">
+          <h4>Advertise</h4>
+        </div>
+        <div class="w3-container w3-white">
+          <div class="w3-container w3-display-container w3-light-grey w3-section" style="height:200px">
+            <span class="w3-display-middle">Finding Sponsers...</span>
+          </div>
+        </div>
+      </div>
+      <hr>
+
+      <!-- Tags -->
+      <div class="w3-white w3-margin">
+        <div class="w3-container w3-padding w3-theme-d5">
+          <h4>Tags</h4>
+        </div>
+        <div class="w3-container w3-white">
+          <p>
+            <span class="w3-tag w3-black w3-margin-bottom">Tech</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">CES 2019</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Elon Musk</span>
+            <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">PC</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Intel</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Samsung</span>
+            <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Laptops</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Apple</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Accessories</span>
+            <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">News</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Iphone</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Deals</span>
+            <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Gaming</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Microsoft</span>
+          </p>
+        </div>
+      </div>
+      <hr>
+
+      <!-- Inspiration -->
+      <div class="w3-white w3-margin">
+        <div class="w3-container w3-padding w3-theme-d5">
+          <h4>Inspiration</h4>
+        </div>
+        <div class="w3-row-padding w3-white">
+          <div class="w3-col s6">
+            <p><img src="https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Jeans" style="width:100%"></p>
+            <p><img src="https://images.pexels.com/photos/1476321/pexels-photo-1476321.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Jeans" style="width:100%"></p>
+          </div>
+          <div class="w3-col s6">
+            <p><img src="https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Men in Hats" style="width:100%" class="w3-grayscale"></p>
+            <p><img src="https://images.pexels.com/photos/682933/pexels-photo-682933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Jeans" style="width:100%"></p>
+         </div>
+        </div>
+      </div>
+      <hr>
+
+      <div class="w3-white w3-margin">
+        <div class="w3-container w3-padding w3-theme-d5">
+          <h4>Follow Me</h4>
+        </div>
+        <div class="w3-container w3-xlarge w3-padding">
+          <i class="fa fa-facebook-official w3-hover-opacity"></i>
+          <i class="fa fa-instagram w3-hover-opacity"></i>
+          <i class="fa fa-snapchat w3-hover-opacity"></i>
+          <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+          <i class="fa fa-twitter w3-hover-opacity"></i>
+          <i class="fa fa-linkedin w3-hover-opacity"></i>
+        </div>
+      </div>
+      <hr>
+      
+      <!-- Subscribe -->
+      <div class="w3-white w3-margin">
+        <div class="w3-container w3-padding w3-theme-d5">
+          <h4>Subscribe</h4>
+        </div>
+        <div class="w3-container w3-white">
+          <p>Enter your e-mail below and get notified on the latest blog posts.</p>
+          <p><input class="w3-input w3-border" type="text" placeholder="Enter e-mail" style="width:100%"></p>
+          <p><button type="button" onclick="document.getElementById('subscribe').style.display='block'" class="w3-button w3-block w3-red">Subscribe</button></p>
+        </div>
+      </div>
+
+    <!-- END About/Intro Menu -->
+    </div>
+
+  <!-- END GRID -->
+  </div>
+
+<!-- END w3-content -->
+</div>
+
+<!-- Subscribe Modal -->
+<div id="subscribe" class="w3-modal w3-animate-opacity">
+  <div class="w3-modal-content" style="padding:32px">
+    <div class="w3-container w3-white">
+      <i onclick="document.getElementById('subscribe').style.display='none'" class="fa fa-remove w3-transparent w3-button w3-xlarge w3-right"></i>
+      <h2 class="w3-wide">SUBSCRIBE</h2>
+      <p>Join my mailing list to receive updates on the latest blog posts and other things.</p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Enter e-mail"></p>
+      <button type="button" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('subscribe').style.display='none'">Subscribe</button>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-theme-d5" style="padding:32px">
+  <div class="footer-container">
+    <div class="footer-text">
+      <a href="#" class="w3-button w3-black w3-padding-large w3-margin-bottom"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+        <p>Designed by Arotech</p>
+    </div>
+    <div class="socialbutton" >
+        <ul >
+            <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fab fa-google-plus-g" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+        </ul>
+    </div>
+</div>    
+</footer>
+
+<script>
+// Toggle between hiding and showing blog replies/comments
+document.getElementById("myBtn").click();
+function myFunction(id) {
+  var x = document.getElementById(id);
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+function likeFunction(x) {
+  x.style.fontWeight = "bold";
+  x.innerHTML = "✓ Liked";
+}
+</script>
+
+</body>
+</html>
