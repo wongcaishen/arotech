@@ -84,4 +84,20 @@ function myFunction() {
       });
     });
   });
-  
+
+function scrollAppear(){
+  var abouttext = document.querySelector('.abouttext');
+  var aboutimg = document.querySelector('.aboutimg');
+  var introPosition = abouttext.getBoundingClientRect().top;
+  var screenPosition = window.innerHeight;
+
+
+  if(introPosition < screenPosition){
+    abouttext.classList.add('introduction-appear');
+    aboutimg.classList.add('introduction-appear');
+  }
+
+
+}
+
+window.addEventListener('scroll',scrollAppear);

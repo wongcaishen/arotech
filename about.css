@@ -9,8 +9,8 @@ header{
     justify-content: center;
     align-items: center;
     text-align: center;
-   background-image: url('aboutitle.jpg');
-    background-size: cover;
+    background-image: url('aboutitle.jpg');
+    
     color: #fff;
 }
 
@@ -231,14 +231,14 @@ footer{
     background-color:#fff;
     overflow: hidden;
     height: 5rem;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Quicksand', sans-serif;
 
   }
 
   .topnav img{
       height: 50px;
-      margin: 10px 0px 10px 200px;
   }
+
   
   /* Style the links inside the navigation bar */
   .topnav a {
@@ -251,6 +251,10 @@ footer{
     text-decoration: none;
     font-size: 17px;
 
+  }
+.logo{
+    position: absolute;
+    right: 80%;
   }
 
   .topnav .blog{

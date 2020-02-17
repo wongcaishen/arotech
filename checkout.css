@@ -16,13 +16,13 @@ body{
     background-color:#fff;
     overflow: hidden;
     height: 5rem;
+    font-family: 'Quicksand', sans-serif;
 
   }
 
   .topnav img{
       height: 50px;
-      margin: 10px 0px 10px 200px;
-      background-color: #fff;
+
   }
   
   /* Style the links inside the navigation bar */
@@ -37,6 +37,12 @@ body{
     font-size: 17px;
     background-color: #fff;
 
+  }
+
+  
+  .logo{
+    position: absolute;
+    right: 80%;
   }
 
   .topnav .blog{
@@ -147,7 +153,7 @@ body{
     position: sticky;
     width: 100%;
     height: 0;
-    border-bottom: 300px solid #181B2B;
+    border-bottom: 200px solid #181B2B;
     border-right: 2200px solid transparent;
     background-color: #fff;
 }
@@ -255,18 +261,21 @@ form h1:nth-of-type(2) {
   flex-direction: column;
   align-items: flex-end;
 }
-.btns button {
+.btns .btn {
   margin: 3px 0;
   height: 30px;
   width: 40%;
-  color: #cfc9e1;
+  text-align: center;
+  text-decoration: none;
+  padding: 5px;
+  color: #e1c9c9;
   background-color: #4a3b76;
   text-transform: uppercase;
   border: 0;
   border-radius: 0.3rem;
   letter-spacing: 2px;
 }
-.btns button:hover {
+.btns .btn:hover {
   animation-name: btn-hov;
   animation-duration: 550ms;
   animation-fill-mode: forwards;
@@ -278,7 +287,7 @@ form h1:nth-of-type(2) {
     transform: scale(1.05);
   }
 }
-input:focus, button:focus {
+input:focus, .btn:focus {
   outline: none;
 }
 @media (max-width: 736px) {
@@ -315,4 +324,81 @@ input:focus, button:focus {
     margin: 5px 0;
     min-height: 30px;
   }
+}
+
+.modal-window {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.25);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s;
+  
+}
+.modal-window:target {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal-window > div {
+  width: 800px;
+  height: 150px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2em;
+  background: #fff;
+}
+.modal-window header {
+  font-weight: bold;
+}
+.modal-window h1 {
+  font-size: 150%;
+  margin: 0 0 15px;
+}
+.modal-close {
+  color: #aaa;
+  line-height: 50px;
+  font-size: 80%;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 70px;
+  text-decoration: none;
+}
+.modal-close:hover {
+  color: black;
+}
+.homelink {
+  color: #181B2B;
+  text-decoration: none;
+  position: relative;
+  top: 20px;
+  float: right;
+  
+}
+
+.homelink:hover{
+  color: #8e2807;
+}
+
+.modal-window div:not(:last-of-type) {
+  margin-bottom: 15px;
+}
+
+.btn {
+  background-color: #fff;
+  padding: 1em 1.5em;
+  border-radius: 3px;
+  text-decoration: none;
+}
+.btn i {
+  padding-right: 0.3em;
 }

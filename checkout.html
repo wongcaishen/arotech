@@ -4,13 +4,14 @@
 	<title>Contact us</title>
 	<link rel="stylesheet" type="text/css" href="checkout.css">
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Alatsi|Saira+Extra+Condensed|Yantramanav:100&display=swap" rel="stylesheet">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
 </head>
 <body>
 	<header>
         <div class="topnav" id="myTopnav">
-            <img src="nav logo.svg" alt="">
+            <a class="logo" href="index.html"><img src="nav logo.svg" alt=""></a>
             <a href="contact.html">Contact</a>
             <a class="blog" href="blog.html">Blog</a>
             <div class="dropdown">
@@ -86,8 +87,16 @@
                     </div>
                 </div>
                 <div class="btns">
-                    <button>Purchase</button>
-                    
+                    <a class="btn" href="#open-modal">Purchase</a>
+                </div>
+                <div id="open-modal" class="modal-window">
+                    <div>
+                      <a href="checkout.html" title="Close" class="modal-close">Close</a>
+                      <h1>Thank You!</h1>
+                      <div>Your order has been placed. We will ship out your product in 2-3 working days. Hope to recieve your order again and thanks for shopping with Arotech!</div>
+                   
+                      <a class="homelink" href="index.html"><b>Back To Home</b></div>
+                    </div>
                 </div>
             </form>
         </div>
